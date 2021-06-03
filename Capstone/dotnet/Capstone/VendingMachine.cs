@@ -7,7 +7,7 @@ namespace Capstone
     class VendingMachine
     {
 
-        public decimal Balance { get; private set; }
+        public decimal Balance { get; private set; } = 0.00M;
 
         public int Mode { get; set; } = 0;
 
@@ -34,7 +34,7 @@ namespace Capstone
         public void DepositMoney(decimal amount)
         {
             Balance += amount;
-            Console.WriteLine(Balance);
+            
         }
 
         public void PurchaseItem(string position)
@@ -56,7 +56,6 @@ namespace Capstone
             {
                 ItemDictionary[position].Inventory -= 1;
                 Balance -= ItemDictionary[position].Price;
-
                 Console.WriteLine(ItemDictionary[position].Sound);
             }
         }
