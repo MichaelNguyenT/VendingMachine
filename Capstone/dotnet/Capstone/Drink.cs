@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Capstone
 {
-    class Drink : IItem
+    //Drink object that utilizes the IItem Interface
+    public class Drink : IItem
     {
         public string Name { get; private set; }
 

@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Capstone
 {
-    interface IItem
+    //An interface for the items that require these properties to be made
+    public interface IItem
     {
         public string Name { get;  }
 

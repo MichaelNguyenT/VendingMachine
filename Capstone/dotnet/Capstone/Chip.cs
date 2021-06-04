@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Capstone
 {
-    class Chip : IItem
+    //Chip object that utilizes the IItem Interface
+    public class Chip : IItem
     {
         public string Name { get; private set; }
 
@@ -17,7 +18,7 @@ namespace Capstone
         public int TotalSales { get; set; } = 0;
 
         public string Slot { get; private set; }
-        public Chip(string slot, string name,  decimal price)
+        public Chip(string slot, string name, decimal price)
         {
             Name = name;
             Slot = slot;
