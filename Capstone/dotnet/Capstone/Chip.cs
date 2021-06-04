@@ -14,6 +14,8 @@ namespace Capstone
 
         public int Inventory { get; set; } = 5;
 
+        public int TotalSales { get; set; } = 0;
+
         public string Slot { get; private set; }
         public Chip(string slot, string name,  decimal price)
         {

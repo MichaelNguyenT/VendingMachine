@@ -17,6 +17,7 @@ namespace Capstone
         {
             try
             {
+                now = DateTime.Now;
                 using (sw = new StreamWriter(fileLocation, true))
                 {
                     sw.WriteLine($"{now.ToString()} FEED MONEY: {insertedMoney.ToString("C2")} {balance.ToString("C2")}");
@@ -31,6 +32,7 @@ namespace Capstone
         {
             try
             {
+                now = DateTime.Now;
                 using (sw = new StreamWriter(fileLocation, true))
                 {
                     sw.WriteLine($"{now.ToString()} {itemPurchased.Name} {itemPurchased.Slot} {itemPurchased.Price.ToString("C2")} {balance.ToString("C2")}");
@@ -45,6 +47,7 @@ namespace Capstone
         {
             try
             {
+                now = DateTime.Now;
                 using (sw = new StreamWriter(fileLocation, true))
                 {
                     sw.WriteLine($"{now.ToString()} GIVE CHANGE: {balance.ToString("C2")} $0.00");

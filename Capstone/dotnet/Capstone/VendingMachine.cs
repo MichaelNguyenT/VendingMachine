@@ -31,9 +31,21 @@ namespace Capstone
                 
         }
 
-        public void DepositMoney(decimal amount)
+        public decimal DepositMoney(string amount)
         {
-            Balance += amount;
+            decimal decimalAmount = decimal.Parse(amount);
+
+            while (!(decimalAmount == 1 || decimalAmount == 2 ||decimalAmount == 5|| decimalAmount == 10))
+            {
+                Console.WriteLine("Please enter a valid amount");
+                amount = (Console.ReadLine());
+                decimalAmount = decimal.Parse(amount);
+            }
+            decimal finalAmount = decimal.Parse(amount);
+            
+                Balance += (finalAmount);
+            return finalAmount;
+            
             
         }
 
@@ -57,6 +69,7 @@ namespace Capstone
                 ItemDictionary[position].Inventory -= 1;
                 Balance -= ItemDictionary[position].Price;
                 Console.WriteLine(ItemDictionary[position].Sound);
+                ItemDictionary[position].TotalSales += 1;
             }
         }
 

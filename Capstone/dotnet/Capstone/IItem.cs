@@ -16,5 +16,7 @@ namespace Capstone
 
         public int Inventory { get; set; }
 
+        public int TotalSales { get; set; }
+
     }
 }

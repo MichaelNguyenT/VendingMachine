@@ -55,7 +55,7 @@ namespace Capstone
             
             while (myVendingMachine.Mode == 0)
             {
-                Console.WriteLine("(1) Display Vending Machine Items");
+                Console.WriteLine("\n(1) Display Vending Machine Items");
                 Console.WriteLine("(2) Purchase Items");
                 Console.WriteLine("(3) Exit");
                 string modeSelection = Console.ReadLine();
@@ -69,7 +69,7 @@ namespace Capstone
                     myVendingMachine.Mode = 1;
                     while (myVendingMachine.Mode == 1)
                     {
-                        Console.WriteLine("(1) Feed Money");
+                        Console.WriteLine("\n(1) Feed Money");
                         Console.WriteLine("(2) Purchase Product");
                         Console.WriteLine("(3) Finish Transaction");
                         Console.WriteLine($"Current money provided: ${myVendingMachine.Balance}");
@@ -77,9 +77,10 @@ namespace Capstone
                         if (inputSelection == "1")
                         {
                             Console.WriteLine("Please insert a whole dollar amount (e.g. $1, $2, $5, or $10)");
-                            decimal insertAmount = decimal.Parse(Console.ReadLine());
-                            myVendingMachine.DepositMoney(insertAmount);
-                            Log.WriteLogFedIn(insertAmount, myVendingMachine.Balance);
+                            string insertAmount = (Console.ReadLine());
+                            decimal finalAmount = myVendingMachine.DepositMoney(insertAmount);
+                            
+                            Log.WriteLogFedIn(finalAmount, myVendingMachine.Balance);
                         }
                         else if (inputSelection == "2")
                         {
@@ -88,7 +89,7 @@ namespace Capstone
                             while(!myVendingMachine.ItemDictionary.ContainsKey(inputPosition))
                             {
                                 Console.Write("Please enter a valid item position.");
-                                inputPosition = Console.ReadLine();
+                                inputPosition = Console.ReadLine().ToUpper();
                             }
                              myVendingMachine.PurchaseItem(inputPosition);
                             Log.WriteLogPurchase(myVendingMachine.ItemDictionary[inputPosition], myVendingMachine.Balance);
@@ -107,10 +108,10 @@ namespace Capstone
                     Environment.Exit(0);
                 }
 
-                else if (modeSelection == "4")
-                {
-
-                }
+                //else if (modeSelection == "4")
+                //{
+                //    SalesReport.RunSalesReport(myVendingMachine);
+                //}
             }
         }
     }
